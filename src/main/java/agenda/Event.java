@@ -40,11 +40,17 @@ public class Event {
      * @return true if the event occurs on that day, false otherwise
      */
     public boolean isInDay(LocalDate aDay) {
+<<<<<<< HEAD
         for ()
         if (this.myStart.equals(aDay)){
             return true;
         }
         return false;
+=======
+    
+        // TODO : implémenter cette méthode
+        throw new UnsupportedOperationException("Pas encore implémenté");
+>>>>>>> 804186b53e59601bfec3d15b2fa55c99f793a232
     }
    
     /**
