@@ -48,29 +48,10 @@ public class Event {
         LocalDate jourFin = myEnd.toLocalDate();
         LocalDate jourDebut = myStart.toLocalDate();
 
-        long periode = ChronoUnit.DAYS.between(myStart,myEnd);
-
         if (aDay.isBefore(jourFin) && aDay.isAfter(jourDebut)||aDay.equals(jourDebut) || aDay.equals(jourFin)){
             return true;
         }
         return false;
-
-        /*
-        if (periode==0){
-            if (jourDebut.equals(aDay)){
-                return true;
-            } 
-            return false;
-        } else {
-            for (int i=1;i<=periode;i++){
-                if (!jourDebut.equals(aDay)){
-                    jourDebut=jourDebut.plus(1,ChronoUnit.DAYS);
-                    return false;
-                }
-            }
-        }
-        return true;
-        */
         
     }
    
@@ -94,6 +75,11 @@ public class Event {
      */
     public Duration getDuration() {
         return myDuration;
+    }
+
+    @Override
+    public String toString() {
+        return "Simple Event : [Intitulé=" + myTitle + ", durée=" + myDuration + ", début=" + myStart +  "]";
     }
 
    
