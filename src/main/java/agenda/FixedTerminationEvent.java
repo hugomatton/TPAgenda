@@ -10,8 +10,8 @@ import java.time.temporal.ChronoUnit;
  * a given number of occurrences
  */
 public class FixedTerminationEvent extends RepetitiveEvent {
-    LocalDate terminationInclusive;
-    long numberOfOccurrences;
+    private LocalDate terminationInclusive;
+    private long numberOfOccurrences=-1;
     
     /**
      * Constructs a fixed terminationInclusive event ending at a given date
@@ -56,11 +56,41 @@ public class FixedTerminationEvent extends RepetitiveEvent {
      * @return the termination date of this repetitive event
      */
     public LocalDate getTerminationDate() {
-        return terminationInclusive;   
+        LocalDate res;
+        if (numberOfOccurrences==-1){
+            res=terminationInclusive;
+        } else {
+            LocalDate jourDebut = getStart().toLocalDate();
+            res=jourDebut.plus(numberOfOccurrences-1, frequency) ;
+        }
+        return res;   
     }
 
     public long getNumberOfOccurrences() {
-        return numberOfOccurrences;
+        long res;
+        if (numberOfOccurrences==-1){
+            res=frequency.between(getStart().toLocalDate(), terminationInclusive)+1 ;
+        } else {
+            res = numberOfOccurrences;
+        }
+        return res;
+    }
+
+    public boolean isInDay(LocalDate aDay){
+        //si le jour passé en paramètre appartient aux jours d'exceptions (là où un event est exceptionnellement suspendu)
+        for (LocalDate d : this.getDatesException()){
+            if (d.equals(aDay)){
+                return false;
+            }
+        }
+
+        LocalDate myStart = getStart().toLocalDate();
+        LocalDate myEnd = myStart.plus(getNumberOfOccurrences(), frequency);
+
+        if (aDay.isBefore(myEnd) && aDay.isAfter(myStart)||aDay.equals(myStart) || aDay.equals(myEnd)){
+            return true;
+        }
+        return false;
     }
         
 }
