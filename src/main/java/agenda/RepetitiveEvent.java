@@ -62,6 +62,10 @@ public class RepetitiveEvent extends Event {
             //on incremente le debut de l'evenement par la frequence
             event.setStart(event.getStart().plus(1,frequency));
         }
+        //on regarde que le jour en parametre n'est pas un jour exception
+        if(datesException.contains(aDay)){
+            res = false;
+        }
 
         return res;
     }
