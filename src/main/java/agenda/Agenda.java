@@ -29,7 +29,7 @@ public class Agenda {
     public List<Event> eventsInDay(LocalDate day) {
         ArrayList<Event> res = new ArrayList<>();
         for(Event e : lesEvents){
-            if(e.getStart().toLocalDate() == day){
+            if(e.isInDay(day)){
                 res.add(e);
             }
         }

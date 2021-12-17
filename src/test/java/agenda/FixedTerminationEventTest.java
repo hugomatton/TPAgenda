@@ -31,6 +31,7 @@ public class FixedTerminationEventTest {
     @Test
     public void canCalculateNumberOfOccurrencesFromTerminationDate() {
         assertEquals(10, fixedTermination.getNumberOfOccurrences(), "Cet événement doits se répéter 10 fois");
+        assertEquals(10, fixedTermination.getNumberOfOccurrences(), "Cet événement doits se répéter 10 fois");
     }
 
     @Test
@@ -55,6 +56,8 @@ public class FixedTerminationEventTest {
     public void eventOccurs10WeeksAfter() {
         assertTrue(fixedTermination.isInDay(nov_1_2020.plus(6, ChronoUnit.WEEKS)), "Cet événement se produit toutes les semaines");
         assertTrue(fixedRepetitions.isInDay(nov_1_2020.plus(6, ChronoUnit.WEEKS)), "Cet événement se produit toutes les semaines");
+        assertFalse(fixedTermination.isInDay(LocalDate.of(2020, 11, 2)));
+        assertTrue(fixedTermination.isInDay(LocalDate.of(2020, 11, 8)));
     }
 
     @Test
