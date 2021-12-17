@@ -44,8 +44,11 @@ public class RepetitiveEvent extends Event {
     }
 
     @Override
-    public boolean isInDay(LocalDate aDay){
+    /*
+    public boolean isInDay2(LocalDate aDay){
         boolean res = false;
+
+
         //on fait une copie de l'objet courant pour ne pas le modifier
         RepetitiveEvent event = new RepetitiveEvent(this.getTitle(), this.getStart(), this.getDuration(), frequency);
         while(event.getStart().toLocalDate().isBefore(aDay)){
@@ -56,18 +59,38 @@ public class RepetitiveEvent extends Event {
             LocalDate jourFin = myEnd.toLocalDate();
             LocalDate jourDebut = event.getStart().toLocalDate();
 
-            if (aDay.isBefore(jourFin) && aDay.isAfter(jourDebut)||aDay.equals(jourDebut) || aDay.equals(jourFin)){
+            if (aDay.isBefore(jourFin) && aDay.isAfter(jourDebut)|| aDay.equals(jourDebut) || aDay.equals(jourFin)){
                 res = true;
             }
             //on incremente le debut de l'evenement par la frequence
             event.setStart(event.getStart().plus(1,frequency));
         }
+        
         //on regarde que le jour en parametre n'est pas un jour exception
         if(datesException.contains(aDay)){
             res = false;
         }
-
         return res;
+    }
+    */
+
+    public boolean isInDay(LocalDate aDay){
+
+        LocalDate myStart = getStart().toLocalDate();
+        LocalDate dateSup = myStart.plus(0, frequency);
+
+        //on vérifie que le jour passé en paramètre est après le jour de début de l'event
+        if (aDay.isAfter(dateSup)|| aDay.equals(myStart)){
+            //pour chaque jour où se produit l'event (1 fois/semaine), on vérifie si ce jour là correspond au jour passé en paramètre
+            while (aDay.isAfter(myStart)){
+                if (dateSup.equals(aDay)){
+                    if(!datesException.contains(aDay))
+                        return true;
+                }
+                dateSup.plus(1, frequency);
+            }
+        }
+        return false;
     }
 
   

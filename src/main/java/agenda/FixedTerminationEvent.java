@@ -88,9 +88,9 @@ public class FixedTerminationEvent extends RepetitiveEvent {
         LocalDate myEnd = myStart.plus(getNumberOfOccurrences(), frequency);
 
         //on vérifie que le jour passé en paramètre est bien compris entre le 1er et le dernier jour d'occurence de l'event
-        if (aDay.isBefore(myEnd) && aDay.isAfter(myStart)||aDay.equals(myStart) || aDay.equals(myEnd)){
+        if (aDay.isBefore(myEnd) && aDay.isAfter(myStart)|| aDay.equals(myStart) || aDay.equals(myEnd)){
             //pour chaque jour où se produit l'event (1 fois/semaine), on vérifie si ce jour là correspond au jour passé en paramètre
-            for (int i=1 ; i<= this.getNumberOfOccurrences() ; i++){
+            for (int i=0 ; i<= this.getNumberOfOccurrences() ; i++){
                 if (myStart.plus(i, frequency).equals(aDay)){
                     return true;
                 }
