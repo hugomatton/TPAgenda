@@ -69,6 +69,10 @@ public class Event {
         return myStart;
     }
 
+    public void setStart(LocalDateTime date){
+        this.myStart = date;
+    }
+
 
     /**
      * @return the myDuration

@@ -38,6 +38,31 @@ public class RepetitiveEvent extends Event {
         dateException.add(date);
     }
 
+    @Override
+    public boolean isInDay(LocalDate aDay){
+        boolean res = false;
+        //on fait une copie de l'objet courant pour ne pas le modifier
+        RepetitiveEvent event = new RepetitiveEvent(this.getTitle(), this.getStart(), this.getDuration(), frequency);
+        while(event.getStart().toLocalDate().isBefore(aDay)){
+            
+            long dureeMinutes = event.getDuration().toMinutes();
+            LocalDateTime myEnd = event.getStart().plus(dureeMinutes, ChronoUnit.MINUTES);
+
+            LocalDate jourFin = myEnd.toLocalDate();
+            LocalDate jourDebut = event.getStart().toLocalDate();
+
+            if (aDay.isBefore(jourFin) && aDay.isAfter(jourDebut)||aDay.equals(jourDebut) || aDay.equals(jourFin)){
+                res = true;
+            }
+            //on incremente le debut de l'evenement par la frequence
+            event.setStart(event.getStart().plus(1,frequency));
+        }
+
+        return res;
+    }
+
+  
+
     /**
      *
      * @return the type of repetition
@@ -45,5 +70,6 @@ public class RepetitiveEvent extends Event {
     public ChronoUnit getFrequency() {
         return frequency;   
     }
+
 
 }
