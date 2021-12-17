@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="agenda.AgendaTest" time="0.104" tests="1" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="agenda.AgendaTest" time="0.093" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="FR"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
-    <property name="sun.java.command" value="C:\Users\UTILIS~1\AppData\Local\Temp\surefire6049638746395583302\surefirebooter8335128404914937359.jar C:\Users\Utilisateur\AppData\Local\Temp\surefire6049638746395583302 2021-12-13T17-09-11_986-jvmRun1 surefire14097343014683350629tmp surefire_04076173965532129663tmp"/>
+    <property name="sun.java.command" value="C:\Users\UTILIS~1\AppData\Local\Temp\surefire4392318102501452024\surefirebooter10035880858979302820.jar C:\Users\Utilisateur\AppData\Local\Temp\surefire4392318102501452024 2021-12-17T17-49-41_035-jvmRun1 surefire10681268700340334559tmp surefire_02512010819630440082tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Utilisateur\OneDrive\Bureau\3A_ISIS\GenieLog\TP\TP9Agenda\TPAgenda\target\test-classes;C:\Users\Utilisateur\OneDrive\Bureau\3A_ISIS\GenieLog\TP\TP9Agenda\TPAgenda\target\classes;C:\Users\Utilisateur\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.0\junit-jupiter-api-5.7.0.jar;C:\Users\Utilisateur\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\Utilisateur\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Utilisateur\.m2\repository\org\junit\platform\junit-platform-commons\1.7.0\junit-platform-commons-1.7.0.jar;C:\Users\Utilisateur\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.0\junit-jupiter-engine-5.7.0.jar;C:\Users\Utilisateur\.m2\repository\org\junit\platform\junit-platform-engine\1.7.0\junit-platform-engine-1.7.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\UTILIS~1\AppData\Local\Temp\surefire6049638746395583302\surefirebooter8335128404914937359.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\UTILIS~1\AppData\Local\Temp\surefire4392318102501452024\surefirebooter10035880858979302820.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17+35-LTS-2724"/>
@@ -56,9 +56,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testMultipleEventsInDay" classname="agenda.AgendaTest" time="0.099">
-    <failure message="Il y a 4 événements ce jour là ==&gt; expected: &lt;4&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: Il y a 4 événements ce jour là ==> expected: <4> but was: <0>
-	at agenda.AgendaTest.testMultipleEventsInDay(AgendaTest.java:52)
-]]></failure>
-  </testcase>
+  <testcase name="testMultipleEventsInDay" classname="agenda.AgendaTest" time="0.064"/>
 </testsuite>
