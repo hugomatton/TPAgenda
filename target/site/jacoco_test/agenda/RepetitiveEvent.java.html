@@ -46,23 +46,22 @@ public class RepetitiveEvent extends Event {
 
     public boolean isInDay(LocalDate aDay){
 
-<span class="fc" id="L49">        LocalDate myStart = getStart().toLocalDate();</span>
-<span class="fc" id="L50">        LocalDate dateSup = myStart;</span>
-<span class="fc" id="L51">        System.out.println(dateSup);</span>
+        //on initialise dateSup à la date de début de l'event
+<span class="fc" id="L50">        LocalDate dateSup = getStart().toLocalDate();</span>
 
         //on vérifie que le jour passé en paramètre est après le jour de début de l'event
-<span class="fc bfc" id="L54" title="All 4 branches covered.">        if (aDay.isAfter(dateSup) || aDay.equals(myStart)){</span>
+<span class="fc bfc" id="L53" title="All 4 branches covered.">        if (aDay.isAfter(dateSup) || aDay.equals(dateSup)){</span>
             //pour chaque jour où se produit l'event (1 fois/semaine), on vérifie si ce jour là correspond au jour passé en paramètre
-<span class="fc bfc" id="L56" title="All 4 branches covered.">            while (aDay.isAfter(dateSup) || aDay.equals(dateSup)){</span>
+<span class="fc bfc" id="L55" title="All 4 branches covered.">            while (aDay.isAfter(dateSup) || aDay.equals(dateSup)){</span>
                 
-<span class="fc bfc" id="L58" title="All 4 branches covered.">                if (dateSup.equals(aDay) &amp;&amp; (!datesException.contains(aDay))){</span>
-<span class="fc" id="L59">                    return true;</span>
+<span class="fc bfc" id="L57" title="All 4 branches covered.">                if (dateSup.equals(aDay) &amp;&amp; (!datesException.contains(aDay))){</span>
+<span class="fc" id="L58">                    return true;</span>
                 }
-<span class="fc" id="L61">                dateSup=dateSup.plus(1, frequency);</span>
+<span class="fc" id="L60">                dateSup=dateSup.plus(1, frequency);</span>
                 
             }
         }
-<span class="fc" id="L65">        return false;</span>
+<span class="fc" id="L64">        return false;</span>
     }
 
     
@@ -74,7 +73,7 @@ public class RepetitiveEvent extends Event {
      * @return the type of repetition
      */
     public ChronoUnit getFrequency() {
-<span class="nc" id="L77">        return frequency;   </span>
+<span class="nc" id="L76">        return frequency;   </span>
     }
 
 

@@ -1,4 +1,4 @@
-agenda\Agenda.class
-agenda\RepetitiveEvent.class
-agenda\Event.class
-agenda\FixedTerminationEvent.class
+agenda/RepetitiveEvent.class
+agenda/FixedTerminationEvent.class
+agenda/Event.class
+agenda/Agenda.class
