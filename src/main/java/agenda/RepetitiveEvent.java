@@ -46,12 +46,11 @@ public class RepetitiveEvent extends Event {
 
     public boolean isInDay(LocalDate aDay){
 
-        LocalDate myStart = getStart().toLocalDate();
-        LocalDate dateSup = myStart;
-        System.out.println(dateSup);
+        //on initialise dateSup à la date de début de l'event
+        LocalDate dateSup = getStart().toLocalDate();
 
         //on vérifie que le jour passé en paramètre est après le jour de début de l'event
-        if (aDay.isAfter(dateSup) || aDay.equals(myStart)){
+        if (aDay.isAfter(dateSup) || aDay.equals(dateSup)){
             //pour chaque jour où se produit l'event (1 fois/semaine), on vérifie si ce jour là correspond au jour passé en paramètre
             while (aDay.isAfter(dateSup) || aDay.equals(dateSup)){
                 
